@@ -10,5 +10,15 @@ pipeline {
                 echo "Hello! Is it me youre looking for..."
             }
         }
+        stage('cat README') {
+            when {
+                branch "fix-*"
+            }
+            steps {
+                sh '''
+                    cat README.md
+                '''
+            }
+        }
     }
 }
